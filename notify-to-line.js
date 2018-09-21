@@ -7,7 +7,7 @@ var lineToken = "your lineToken";
 
 function main()
 {
-    var calendars = CalendarsApp.getAllCalendars();
+    var calendars = CalendarApp.getAllCalendars();
     var text = Utilities.formatDate(new Date(),'JST','yyyy/MM/dd')+"\n";
 
     for(i in calendars) 
@@ -26,13 +26,22 @@ function main()
       	    var title = event.getTitle();
       	    var start = toTime(event.getStartTime());
             var end = toTime(event.getEndTime());
-            text += start +'-'+ end +""+ title + '\n';
         }
         if( events.length > 0 )
         {
             text += "\n";
         }
     }
+        if(title == undefined)
+        {
+            text += "今日予定されているイベンとはありません。\n"
+            //イベントの無い日に実行。
+        }
+    else
+     {
+          text += start+'_'+end+" "+title+'\n';
+     }
+
     sendToLine(text);
 }
 
