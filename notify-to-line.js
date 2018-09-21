@@ -1,5 +1,10 @@
 var lineToken = "your lineToken";
 
+//Google Apps Scriptで記述。
+//GoogleカレンダーのイベントをLINEのグループLINEに通知を送信する為のコードです。
+//LINE Notifyが自動でGoogleカレンダーの予定を取りに行きます。
+//このコードの実行時間はGoogleDriveのトリガー設定を設定することで可能。
+
 function main()
 {
     var calendars = CalendarsApp.getAllCalendars();
