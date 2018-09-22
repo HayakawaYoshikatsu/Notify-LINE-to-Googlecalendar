@@ -34,15 +34,14 @@ function main()
     }
         if(title == undefined)
         {
-            text += "今日予定されているイベンとはありません。\n"
-            //イベントの無い日に実行。
+            //イベントの無い日は何も送信されません。
         }
     else
      {
           text += start+'_'+end+" "+title+'\n';
+          sendToLine(text);
      }
 
-    sendToLine(text);
 }
 
 function sendToLine(text)
